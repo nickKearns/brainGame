@@ -104,6 +104,7 @@ class ViewController: UIViewController {
     
     @IBAction func playButtontapped(_ sender: Any) {
         isPlaying = true
+        playButton.isHidden = true
         
     }
     
@@ -114,16 +115,21 @@ class ViewController: UIViewController {
         //increment score by 1
         //if yes is tapped and the correct answer is no
         //decrement score by 1
-               
+        if isPlaying {
         
-        if colorsMatch(){
-            score += 1
+            if colorsMatch(){
+                score += 1
+            }
+            else {
+                score -= 1
+            }
+            playButton.isHidden = true
+            updateLabels()
         }
         else {
-            score -= 1
+            isPlaying = true
+            playButton.isHidden = true
         }
-        updateLabels()
-        
         
        
         
@@ -135,16 +141,22 @@ class ViewController: UIViewController {
         //increment score by 1
         //if no is tapped and the correct answer is yes
         //decrement the score by 1
-        
-        if colorsMatch() == false {
-            score += 1
+        if isPlaying {
+            if colorsMatch() == false {
+                score += 1
+            }
+            else {
+                score -= 1
+            }
+            playButton.isHidden = true
+            updateLabels()
         }
         else {
-            score -= 1
+            isPlaying = true
+            playButton.isHidden = true
         }
-        updateLabels()
-        
     }
+    
     
     
     func updateLabels() {
