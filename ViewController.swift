@@ -20,7 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
     
-
+    @IBOutlet weak var colorWordLabel: UILabel!
+    @IBOutlet weak var colorLabel: UILabel!
     
     var score = 0
     
@@ -36,6 +37,19 @@ class ViewController: UIViewController {
         case purple
         case orange
     }
+    
+    func colorToUIColor(color: Color) ->UIColor {
+        switch color {
+        case .blue: return UIColor.blue
+        case .red: return UIColor.red
+        case .yellow: return UIColor.yellow
+        case .green: return UIColor.green
+        case .black: return UIColor.black
+        case .purple: return UIColor.purple
+        case .orange: return UIColor.orange
+        }
+    }
+    
     
     func colorToString(color: Color) -> String {
         switch color {
@@ -71,6 +85,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        colorLabel.textColor = colorToUIColor(color: getRandomColor())
+
     }
 
     

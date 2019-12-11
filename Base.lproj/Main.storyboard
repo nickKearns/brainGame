@@ -37,10 +37,37 @@
                                     <action selector="noButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a3M-4Q-cOc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEv-lp-Snh">
+                                <rect key="frame" x="86" y="163" width="250" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="ciQ-It-9It"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="uHH-wa-h8y"/>
+                                    <constraint firstAttribute="width" constant="250" id="xoS-nO-DSV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GR-on-kV3">
+                                <rect key="frame" x="86" y="338" width="250" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Pzn-Lu-CFR"/>
+                                    <constraint firstAttribute="width" constant="250" id="VWR-a7-gVi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="7GR-on-kV3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="GV0-wh-sh5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wEv-lp-Snh" secondAttribute="trailing" constant="78" id="I9S-AT-jbb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7GR-on-kV3" secondAttribute="trailing" constant="78" id="Qk2-4s-IhS"/>
+                            <constraint firstItem="wEv-lp-Snh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="119" id="WIM-q7-iWa"/>
+                            <constraint firstItem="wEv-lp-Snh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="aSC-gz-rW9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QeV-DF-7Mj" secondAttribute="trailing" constant="52" id="es8-NW-VMW"/>
+                            <constraint firstItem="7GR-on-kV3" firstAttribute="top" secondItem="wEv-lp-Snh" secondAttribute="bottom" constant="75" id="oHe-ae-Vpf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QeV-DF-7Mj" secondAttribute="bottom" id="pVX-hr-jcr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SHT-cY-xtz" secondAttribute="bottom" id="sia-rn-syW"/>
                             <constraint firstItem="QeV-DF-7Mj" firstAttribute="leading" secondItem="SHT-cY-xtz" secondAttribute="trailing" constant="111" id="ycd-pE-ZdM"/>
@@ -48,6 +75,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="colorLabel" destination="7GR-on-kV3" id="aih-GP-gx4"/>
+                        <outlet property="colorWordLabel" destination="wEv-lp-Snh" id="WSO-tT-LFI"/>
                         <outlet property="noButton" destination="QeV-DF-7Mj" id="AAK-e0-RKo"/>
                         <outlet property="yesButton" destination="SHT-cY-xtz" id="cuT-Wd-Pou"/>
                     </connections>
