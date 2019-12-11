@@ -58,6 +58,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTA-KE-ZME">
+                                <rect key="frame" x="169" y="44" width="84" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -78,6 +85,7 @@
                         <outlet property="colorLabel" destination="7GR-on-kV3" id="aih-GP-gx4"/>
                         <outlet property="colorWordLabel" destination="wEv-lp-Snh" id="WSO-tT-LFI"/>
                         <outlet property="noButton" destination="QeV-DF-7Mj" id="AAK-e0-RKo"/>
+                        <outlet property="scoreLabel" destination="XTA-KE-ZME" id="jq7-Gb-cyv"/>
                         <outlet property="yesButton" destination="SHT-cY-xtz" id="cuT-Wd-Pou"/>
                     </connections>
                 </viewController>

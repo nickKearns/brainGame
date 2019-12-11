@@ -16,6 +16,7 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    @IBOutlet weak var scoreLabel: UILabel!
     
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
@@ -37,24 +38,7 @@ class ViewController: UIViewController {
         case purple
         case orange
         
-//        var cantBePairedWith: Color {
-//            switch self {
-//            case .blue:
-//                return .purple
-//            case .purple:
-//                return .blue
-//            case .yellow:
-//                return .orange
-//            case .orange:
-//                return .yellow
-//            case .red:
-//                return .green
-//            case .green:
-//                return .red
-//            default:
-//                return .black
-//            }
-//        }
+//
         
     }
     
@@ -111,11 +95,20 @@ class ViewController: UIViewController {
     @IBAction func yesButtonTapped(_ sender: Any) {
         
         
-        
-        
         //if yes is tapped and the correct answer is yes
         //increment score by 1
+               
         
+        if colorsMatch(){
+            score += 1
+        }
+        else {
+            score -= 1
+        }
+        updateLabels()
+        
+        
+       
         
     }
     
@@ -123,7 +116,15 @@ class ViewController: UIViewController {
         
         //if no is tapped and the correct answer is no
         //increment score by 1
+        
+        if colorsMatch() == false {
+            score += 1
+        }
+        else {
+            score -= 1
+        }
         updateLabels()
+        
     }
     
     
@@ -133,6 +134,7 @@ class ViewController: UIViewController {
         //adding logic to be more accessible to people who are colorblind
         
         let colorText = colorToString(color: getRandomColor())
+        let actualColorText = UIColorToString(color: getRandomColor())
         let actualColor = colorToUIColor(color: getRandomColor())
         
         if (colorText == "blue" && actualColor == UIColor.purple) || (colorText == "purple" && actualColor == UIColor.blue){
@@ -146,15 +148,21 @@ class ViewController: UIViewController {
         }
         else {
             colorLabel.textColor = actualColor
+            colorLabel.text = actualColorText
             colorWordLabel.text = colorText
+            scoreLabel.text = "Score: \(score)"
         }
+        
+        
         
     }
     
     
     func colorsMatch() -> Bool {
         let colorOfLabel =  UIColorToString(color: colorLabel.textColor)
-        return colorOfLabel == colorWordLabel.text
+        print(colorOfLabel)
+        print(colorWordLabel.text!)
+        return colorOfLabel == colorWordLabel.text!
     }
     
     
