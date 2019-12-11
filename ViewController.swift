@@ -134,7 +134,7 @@ class ViewController: UIViewController {
         //adding logic to be more accessible to people who are colorblind
         
         let colorText = colorToString(color: getRandomColor())
-        let actualColorText = UIColorToString(color: getRandomColor())
+        let actualColorText = colorToString(color: getRandomColor())
         let actualColor = colorToUIColor(color: getRandomColor())
         
         if (colorText == "blue" && actualColor == UIColor.purple) || (colorText == "purple" && actualColor == UIColor.blue){
@@ -152,9 +152,6 @@ class ViewController: UIViewController {
             colorWordLabel.text = colorText
             scoreLabel.text = "Score: \(score)"
         }
-        
-        
-        
     }
     
     
