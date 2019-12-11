@@ -24,6 +24,37 @@ class ViewController: UIViewController {
     
     var score = 0
     
+    
+    
+    
+    enum Color: CaseIterable {
+        case blue
+        case red
+        case yellow
+        case green
+        case black
+        case purple
+        case orange
+    }
+    
+    func colorToString(color: Color) -> String {
+        switch color {
+            case .blue: return "blue"
+            case .red: return "red"
+            case .yellow: return "yellow"
+            case .green: return "green"
+            case .black: return "black"
+            case .purple: return "purple"
+            case .orange: return "orange"
+        }
+    }
+    
+    func getRandomColor() -> ViewController.Color {
+        //get a random color from the Color enum and return it
+        return Color.allCases.randomElement()!
+    }
+    
+    
     @IBAction func yesButtonTapped(_ sender: Any) {
         
         //if yes is tapped and the correct answer is yes
