@@ -16,6 +16,8 @@ import UIKit
 class ViewController: UIViewController {
 
     
+    //make the connection to the labels and buttons
+    
     @IBOutlet weak var scoreLabel: UILabel!
     
     @IBOutlet weak var yesButton: UIButton!
@@ -97,6 +99,8 @@ class ViewController: UIViewController {
         
         //if yes is tapped and the correct answer is yes
         //increment score by 1
+        //if yes is tapped and the correct answer is no
+        //decrement score by 1
                
         
         if colorsMatch(){
@@ -116,6 +120,8 @@ class ViewController: UIViewController {
         
         //if no is tapped and the correct answer is no
         //increment score by 1
+        //if no is tapped and the correct answer is yes
+        //decrement the score by 1
         
         if colorsMatch() == false {
             score += 1
@@ -137,6 +143,11 @@ class ViewController: UIViewController {
         let actualColorText = colorToString(color: getRandomColor())
         let actualColor = colorToUIColor(color: getRandomColor())
         
+        
+        
+        // 3 color combinations that are not allowed to happen
+        //
+        
         if (colorText == "blue" && actualColor == UIColor.purple) || (colorText == "purple" && actualColor == UIColor.blue){
             updateLabels()
         }
@@ -147,6 +158,10 @@ class ViewController: UIViewController {
             updateLabels()
         }
         else {
+            
+            //set all the text colors and text of the two labels
+            //and upate the score label
+            
             colorLabel.textColor = actualColor
             colorLabel.text = actualColorText
             colorWordLabel.text = colorText
@@ -156,9 +171,12 @@ class ViewController: UIViewController {
     
     
     func colorsMatch() -> Bool {
+        
+        //return a bool, true if the colorWordLabel text matches the string version of the UIColor of the second word
+        
         let colorOfLabel =  UIColorToString(color: colorLabel.textColor)
-        print(colorOfLabel)
-        print(colorWordLabel.text!)
+//        print(colorOfLabel)
+//        print(colorWordLabel.text!)
         return colorOfLabel == colorWordLabel.text!
     }
     
