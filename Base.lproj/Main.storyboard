@@ -91,6 +91,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fam-y7-xu0">
+                                <rect key="frame" x="115" y="428" width="192" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="192" id="L1s-qG-KCw"/>
+                                    <constraint firstAttribute="height" constant="100" id="wyY-jj-juj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                         <constraints>
@@ -98,20 +108,25 @@
                             <constraint firstItem="6SW-VM-HOj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="D1t-CJ-LMj"/>
                             <constraint firstItem="7GR-on-kV3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="GV0-wh-sh5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wEv-lp-Snh" secondAttribute="trailing" constant="78" id="I9S-AT-jbb"/>
+                            <constraint firstItem="DHd-fT-MOr" firstAttribute="top" secondItem="Fam-y7-xu0" secondAttribute="bottom" constant="34" id="Mn1-Zp-ps6"/>
                             <constraint firstItem="XTA-KE-ZME" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="NrY-wO-Oql"/>
                             <constraint firstItem="6SW-VM-HOj" firstAttribute="leading" secondItem="XTA-KE-ZME" secondAttribute="trailing" constant="89" id="Of7-Vt-Rj1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7GR-on-kV3" secondAttribute="trailing" constant="78" id="Qk2-4s-IhS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6SW-VM-HOj" secondAttribute="trailing" constant="20" id="QmS-Qz-POS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fam-y7-xu0" secondAttribute="trailing" constant="107" id="R9r-yN-CSF"/>
                             <constraint firstItem="QeV-DF-7Mj" firstAttribute="leading" secondItem="DHd-fT-MOr" secondAttribute="trailing" constant="-22" id="Ucg-rN-X0n"/>
                             <constraint firstItem="wEv-lp-Snh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="119" id="WIM-q7-iWa"/>
+                            <constraint firstItem="Fam-y7-xu0" firstAttribute="leading" secondItem="DHd-fT-MOr" secondAttribute="trailing" constant="-169" id="XnF-17-BRC"/>
                             <constraint firstItem="wEv-lp-Snh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="86" id="aSC-gz-rW9"/>
                             <constraint firstItem="DHd-fT-MOr" firstAttribute="top" secondItem="7GR-on-kV3" secondAttribute="bottom" constant="124" id="bVm-8K-DUf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QeV-DF-7Mj" secondAttribute="trailing" constant="52" id="es8-NW-VMW"/>
                             <constraint firstItem="DHd-fT-MOr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="131" id="fOV-0a-4dq"/>
                             <constraint firstItem="XTA-KE-ZME" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="grL-YR-Rlt"/>
                             <constraint firstItem="7GR-on-kV3" firstAttribute="top" secondItem="wEv-lp-Snh" secondAttribute="bottom" constant="75" id="oHe-ae-Vpf"/>
+                            <constraint firstItem="Fam-y7-xu0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="115" id="osD-Ed-O8Y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QeV-DF-7Mj" secondAttribute="bottom" id="pVX-hr-jcr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DHd-fT-MOr" secondAttribute="bottom" constant="163" id="qZg-c0-cq3"/>
+                            <constraint firstItem="Fam-y7-xu0" firstAttribute="leading" secondItem="7GR-on-kV3" secondAttribute="trailing" constant="-221" id="rQW-as-u3W"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SHT-cY-xtz" secondAttribute="bottom" id="sia-rn-syW"/>
                             <constraint firstItem="6SW-VM-HOj" firstAttribute="leading" secondItem="XTA-KE-ZME" secondAttribute="trailing" constant="89" id="suv-Cq-Rnv"/>
                             <constraint firstItem="DHd-fT-MOr" firstAttribute="leading" secondItem="SHT-cY-xtz" secondAttribute="trailing" constant="-20" id="yWh-fk-W1X"/>
@@ -122,10 +137,11 @@
                     <connections>
                         <outlet property="colorLabel" destination="7GR-on-kV3" id="aih-GP-gx4"/>
                         <outlet property="colorWordLabel" destination="wEv-lp-Snh" id="WSO-tT-LFI"/>
+                        <outlet property="finalScoreLabel" destination="Fam-y7-xu0" id="G5C-ix-lgp"/>
                         <outlet property="noButton" destination="QeV-DF-7Mj" id="AAK-e0-RKo"/>
                         <outlet property="playButton" destination="DHd-fT-MOr" id="8IL-tt-qzd"/>
                         <outlet property="scoreLabel" destination="XTA-KE-ZME" id="jq7-Gb-cyv"/>
-                        <outlet property="timerLabel" destination="6SW-VM-HOj" id="mYD-Ud-GH9"/>
+                        <outlet property="timerLabel" destination="6SW-VM-HOj" id="lLF-2X-hVt"/>
                         <outlet property="yesButton" destination="SHT-cY-xtz" id="cuT-Wd-Pou"/>
                     </connections>
                 </viewController>

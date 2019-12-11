@@ -28,20 +28,23 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var playButton: UIButton!
     
+
     @IBOutlet weak var timerLabel: UILabel!
+    
+    @IBOutlet weak var finalScoreLabel: UILabel!
+    
     
     var score = 0
     var isPlaying = false
     var gameOver = false
-    
-    
-//    var timer: Timer?
     var timeLeft = 60
+    var timer: Timer?
     
   
   
     func runTimer() {
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+//        print("run timer is called")
     }
     @objc func updateCounter() {
         
@@ -49,7 +52,16 @@ class ViewController: UIViewController {
         //decrement timeLeft
         
         timerLabel.text = "Time left: \(timeLeft)"
-        timeLeft -= 1
+        if timeLeft > 0 {
+            timeLeft -= 1
+        }
+//        print(timeLeft)
+        if timeLeft <= 0 {
+            showGameOver()
+            timer?.invalidate()
+            timer = nil
+        }
+        
         
         
     }
@@ -119,25 +131,38 @@ class ViewController: UIViewController {
     
     func showGameOver() {
         playButton.isHidden = false
+        isPlaying = false
         displayFinalScore()
+        
         
         
     }
     
     func displayFinalScore() {
+        colorWordLabel.isHidden = true
+        colorLabel.isHidden = true
+        finalScoreLabel.text = "Final Score: \(score)"
+        finalScoreLabel.isHidden = false
+        
+    }
+    func restartGame() {
+        finalScoreLabel.isHidden = true
+        score = 0
+        timeLeft = 60
+        colorWordLabel.isHidden = false
+        colorLabel.isHidden = false
+        
+        runTimer()
         
     }
     
     @IBAction func playButtontapped(_ sender: Any) {
+        if timeLeft <= 0 {
+            restartGame()
+        }
         isPlaying = true
         playButton.isHidden = true
         runTimer()
-        
-        if timeLeft == 0 {
-            gameOver = true
-            showGameOver()
-            
-        }
         
         
     }
@@ -149,20 +174,20 @@ class ViewController: UIViewController {
         //increment score by 1
         //if yes is tapped and the correct answer is no
         //decrement score by 1
+        
         if isPlaying {
         
             if colorsMatch(){
-                score += 1
+                score += 10
             }
             else {
-                score -= 1
+                score -= 10
             }
             playButton.isHidden = true
             updateLabels()
         }
         else {
-            isPlaying = true
-            playButton.isHidden = true
+            restartGame()
         }
         
        
@@ -177,17 +202,16 @@ class ViewController: UIViewController {
         //decrement the score by 1
         if isPlaying {
             if colorsMatch() == false {
-                score += 1
+                score += 10
             }
             else {
-                score -= 1
+                score -= 10
             }
             playButton.isHidden = true
             updateLabels()
         }
         else {
-            isPlaying = true
-            playButton.isHidden = true
+            restartGame()
         }
     }
     
@@ -201,6 +225,8 @@ class ViewController: UIViewController {
         let colorText = colorToString(color: getRandomColor())
         let actualColorText = colorToString(color: getRandomColor())
         let actualColor = colorToUIColor(color: getRandomColor())
+        finalScoreLabel.isHidden = true
+        timerLabel.text = "Time left: \(timeLeft)"
         
         
         
@@ -247,11 +273,5 @@ class ViewController: UIViewController {
         
 
     }
-
-    
-    
-    
-    
-
 }
 
