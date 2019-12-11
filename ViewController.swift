@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     
     
     
-    enum Color: CaseIterable {
+    enum Color: String, CaseIterable {
         case blue
         case red
         case yellow
@@ -36,9 +36,29 @@ class ViewController: UIViewController {
         case black
         case purple
         case orange
+        
+//        var cantBePairedWith: Color {
+//            switch self {
+//            case .blue:
+//                return .purple
+//            case .purple:
+//                return .blue
+//            case .yellow:
+//                return .orange
+//            case .orange:
+//                return .yellow
+//            case .red:
+//                return .green
+//            case .green:
+//                return .red
+//            default:
+//                return .black
+//            }
+//        }
+        
     }
     
-    func colorToUIColor(color: Color) ->UIColor {
+    func colorToUIColor(color: Color) -> UIColor {
         switch color {
         case .blue: return UIColor.blue
         case .red: return UIColor.red
@@ -47,6 +67,23 @@ class ViewController: UIViewController {
         case .black: return UIColor.black
         case .purple: return UIColor.purple
         case .orange: return UIColor.orange
+        }
+    }
+    
+    
+    
+    func UIColorToString(color: UIColor) -> String {
+        switch color {
+        case UIColor.blue: return "blue"
+        case UIColor.red: return "red"
+        case UIColor.yellow: return "yellow"
+        case UIColor.green: return "green"
+        case UIColor.black: return "black"
+        case UIColor.purple: return "purple"
+        case UIColor.orange: return "orange"
+        default:
+            return "no color"
+            
         }
     }
     
@@ -62,6 +99,8 @@ class ViewController: UIViewController {
             case .orange: return "orange"
         }
     }
+
+    
     
     func getRandomColor() -> ViewController.Color {
         //get a random color from the Color enum and return it
@@ -71,8 +110,12 @@ class ViewController: UIViewController {
     
     @IBAction func yesButtonTapped(_ sender: Any) {
         
+        
+        
+        
         //if yes is tapped and the correct answer is yes
         //increment score by 1
+        
         
     }
     
@@ -80,13 +123,45 @@ class ViewController: UIViewController {
         
         //if no is tapped and the correct answer is no
         //increment score by 1
+        updateLabels()
     }
+    
+    
+    func updateLabels() {
+        
+        
+        //adding logic to be more accessible to people who are colorblind
+        
+        let colorText = colorToString(color: getRandomColor())
+        let actualColor = colorToUIColor(color: getRandomColor())
+        
+        if (colorText == "blue" && actualColor == UIColor.purple) || (colorText == "purple" && actualColor == UIColor.blue){
+            updateLabels()
+        }
+        else if (colorText == "green" && actualColor == UIColor.red) || (colorText == "red" && actualColor == UIColor.green) {
+            updateLabels()
+        }
+        else if (colorText == "orange" && actualColor == UIColor.yellow) || (colorText == "yellow" && actualColor == UIColor.orange) {
+            updateLabels()
+        }
+        else {
+            colorLabel.textColor = actualColor
+            colorWordLabel.text = colorText
+        }
+        
+    }
+    
+    
+    func colorsMatch() -> Bool {
+        let colorOfLabel =  UIColorToString(color: colorLabel.textColor)
+        return colorOfLabel == colorWordLabel.text
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        colorLabel.textColor = colorToUIColor(color: getRandomColor())
+        updateLabels()
 
     }
 
