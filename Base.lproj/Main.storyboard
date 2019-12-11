@@ -125,6 +125,7 @@
                         <outlet property="noButton" destination="QeV-DF-7Mj" id="AAK-e0-RKo"/>
                         <outlet property="playButton" destination="DHd-fT-MOr" id="8IL-tt-qzd"/>
                         <outlet property="scoreLabel" destination="XTA-KE-ZME" id="jq7-Gb-cyv"/>
+                        <outlet property="timerLabel" destination="6SW-VM-HOj" id="mYD-Ud-GH9"/>
                         <outlet property="yesButton" destination="SHT-cY-xtz" id="cuT-Wd-Pou"/>
                     </connections>
                 </viewController>

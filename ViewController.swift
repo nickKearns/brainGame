@@ -28,14 +28,29 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet weak var timerLabel: UILabel!
     
     var score = 0
     var isPlaying = false
+    var gameOver = false
     
     
+//    var timer: Timer?
+    var timeLeft = 60
     
-    
-    func startTimer() {
+  
+  
+    func runTimer() {
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+    }
+    @objc func updateCounter() {
+        
+        //update the timer label text with time left
+        //decrement timeLeft
+        
+        timerLabel.text = "Time left: \(timeLeft)"
+        timeLeft -= 1
+        
         
     }
     
@@ -102,9 +117,28 @@ class ViewController: UIViewController {
         return Color.allCases.randomElement()!
     }
     
+    func showGameOver() {
+        playButton.isHidden = false
+        displayFinalScore()
+        
+        
+    }
+    
+    func displayFinalScore() {
+        
+    }
+    
     @IBAction func playButtontapped(_ sender: Any) {
         isPlaying = true
         playButton.isHidden = true
+        runTimer()
+        
+        if timeLeft == 0 {
+            gameOver = true
+            showGameOver()
+            
+        }
+        
         
     }
     
@@ -210,6 +244,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         updateLabels()
+        
 
     }
 
