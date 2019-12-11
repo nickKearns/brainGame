@@ -26,9 +26,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var colorWordLabel: UILabel!
     @IBOutlet weak var colorLabel: UILabel!
     
+    @IBOutlet weak var playButton: UIButton!
+    
+    
     var score = 0
+    var isPlaying = false
     
     
+    
+    
+    func startTimer() {
+        
+    }
     
     
     enum Color: String, CaseIterable {
@@ -93,6 +102,10 @@ class ViewController: UIViewController {
         return Color.allCases.randomElement()!
     }
     
+    @IBAction func playButtontapped(_ sender: Any) {
+        isPlaying = true
+        
+    }
     
     @IBAction func yesButtonTapped(_ sender: Any) {
         

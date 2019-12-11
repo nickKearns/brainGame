@@ -21,6 +21,7 @@
                                     <constraint firstAttribute="height" constant="100" id="b8e-wP-jMk"/>
                                     <constraint firstAttribute="width" constant="100" id="x63-mX-aYD"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <state key="normal" title="YES"/>
                                 <connections>
                                     <action selector="yesButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oXn-FS-dG4"/>
@@ -32,6 +33,7 @@
                                     <constraint firstAttribute="width" constant="100" id="PFl-Ne-qjK"/>
                                     <constraint firstAttribute="height" constant="100" id="wxm-IQ-kY7"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <state key="normal" title="NO"/>
                                 <connections>
                                     <action selector="noButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a3M-4Q-cOc"/>
@@ -65,6 +67,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHd-fT-MOr">
+                                <rect key="frame" x="92" y="566" width="230" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButtontapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G9O-jG-LgE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -85,6 +96,7 @@
                         <outlet property="colorLabel" destination="7GR-on-kV3" id="aih-GP-gx4"/>
                         <outlet property="colorWordLabel" destination="wEv-lp-Snh" id="WSO-tT-LFI"/>
                         <outlet property="noButton" destination="QeV-DF-7Mj" id="AAK-e0-RKo"/>
+                        <outlet property="playButton" destination="DHd-fT-MOr" id="8IL-tt-qzd"/>
                         <outlet property="scoreLabel" destination="XTA-KE-ZME" id="jq7-Gb-cyv"/>
                         <outlet property="yesButton" destination="SHT-cY-xtz" id="cuT-Wd-Pou"/>
                     </connections>
